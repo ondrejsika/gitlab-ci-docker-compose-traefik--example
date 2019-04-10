@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+    counter:
+        networks:
+            - default
+            - traefik
+        labels:
+            - "traefik.frontend.rule=Host:${HOST:-localhost}"
+            - "traefik.enable=true"
+networks:
+    traefik:
+        external:
+            name: traefik

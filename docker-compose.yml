@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+    counter:
+        build: .
+        image: ${IMAGE:-reg.xsika.cz/demo/fg}:${TAG:-latest}
+        depends_on:
+            - redis
+        networks:
+            - default
+    redis:
+        image: redis
+        networks:
+            - default
+
+networks:
+    default:

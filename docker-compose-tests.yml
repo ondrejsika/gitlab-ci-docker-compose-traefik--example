@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+    tests:
+        build: tests
+        image: ${IMAGE:-server}/test:${TAG:-latest}
+        depends_on:
+            - counter
